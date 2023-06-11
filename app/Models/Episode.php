@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Episode extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'number',
+        'link',
+        'season_id',
+    ];
+
+    function season() {
+        return $this->belongsTo(Season::class, 'season_id');
+    }
+}
